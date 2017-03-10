@@ -1,0 +1,19 @@
+<p> País:
+<%= select "country", "name", @countries.collect {|c| [c.name, c.id]} %> </p>
+
+<p>
+Ciudad:
+<%= select "city", "name", @cities.collect {|c| [c.name, c.id]} %> </p>
+
+<script>
+	$("[name='country[name]']").on('change', function(){
+		var filter = $(this).val();
+	    $.ajax({
+	    	url: '<%= cities_index_path %>',
+	    	type: 'GET',
+	    	dataType: 'script',
+	    	data: {filter: filter}    
+	    });
+
+	})
+</script>

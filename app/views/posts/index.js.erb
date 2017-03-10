@@ -1,0 +1,4 @@
+$("tbody").html("");
+<% @posts.each do |post| %>
+    $("table").append("<%= j render post %>");
+<% end %>
